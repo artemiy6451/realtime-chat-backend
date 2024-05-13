@@ -11,6 +11,10 @@ fastapi = "^0.110.1"
 sqlalchemy = "^2.0.29"
 uvicorn = "^0.29.0"
 pydantic = "^2.7.0"
+alembic = "^1.13.1"
+pydantic-settings = "^2.2.1"
+asyncpg = "^0.29.0"
+fastapi-users = {extras = ["sqlalchemy"], version = "^13.0.0"}
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.3.7"
@@ -22,3 +26,16 @@ isort = "^5.13.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 89
+include = '\.pyi?$'
+
+[tool.ruff]
+lint.select = ["F", "E", "W", "I", "N", "PL", "C", "B"]
+
+# Same as Black.
+line-length = 89
